@@ -5,7 +5,8 @@
     //add a jumbotron that display current day and date using moment (e.g. Wed, Mar 31st)
   //create rows for hours (9am-5pm)
     //parent div / hour div / text input /save button
-//Start JavaScript
+
+    //Start JavaScript
   //setup a click event on the save buttons
     // using the event.target, traverse the dom from the button to the textarea
     // also grab a unique identifier for placing the hour input value into localStorage
@@ -13,6 +14,8 @@
   // for determining css backgroundcolor:
     // then iterate over all hour elements
     //use moment to get the current time (specifically the hour)
+   
+   
     // using an id/data attribute, determining what hour the current timeblock respresents (i.e the 'moment time')
       // if the current element time is: 
         // less than moment time, its grey
@@ -29,13 +32,16 @@ var hourThree = document.querySelector("#hour3");
 var hourFour = document.querySelector("#hour4");
 var hourFive = document.querySelector("#hour5");
 var saveBtn = document.querySelectorAll(".saveBtn")
+var colorChanges = document.querySelectorAll("textarea")
 
-//show todays current date
+//show todays current date for jumbotron 
 today = moment();
     $("#currentDay").text(today.format("dddd, MMM Do"));
 
 currentHour = moment().format("hh:mm:ss");
 console.log(currentHour);
+
+// saveBtn.addEventListener
 // console logs values in the hours in text area
 $(".saveBtn").on("click", function () {
     console.log(this)
@@ -43,13 +49,11 @@ $(".saveBtn").on("click", function () {
     var valueText = $(this).siblings("textarea").val()
     console.log(id, valueText)
     localStorage.setItem(id, valueText)
-
 })
 
-//var timeRange = moment.timeRange(startTime, endTime)
 //current timer appearing on console.log
 //var time inputs = json.parse(localStorage.getItem('timeInputs')) {})
-// saveBtn.addEventListener("click", function(){
+
 
 hourNine = JSON.parse(localStorage.getItem("hourNine"))
 hourTen = JSON.parse(localStorage.getItem("hourTen"))
@@ -61,8 +65,8 @@ hourThree = JSON.parse(localStorage.getItem("hourThree"))
 hourFour = JSON.parse(localStorage.getItem("hourFour"))
 hourFive = JSON.parse(localStorage.getItem("hourFive"))
 
-//9 am to 5pm display past, present, current time
-//show hours with past, present, future colors
+// 9 am to 5pm display past, present, current time
+// show hours with past, present, future colors
 function colorChange() {
     var time = moment().hour()
     console.log(time)
@@ -73,7 +77,6 @@ function colorChange() {
         if (span >= 1 && span <= 5) {
             span += 12
         }
-
 
 console.log(span)
 if(span < time ){
