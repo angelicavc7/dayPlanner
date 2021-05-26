@@ -18,13 +18,25 @@
         // less than moment time, its grey
         // same as moment time, its red
         // greater than moment time, its green
+
+var hourNine = document.querySelector("#hour9");
+var hourten = document.querySelector("#hour10");
+var hourEleven = document.querySelector("#hour11");
+var hourTwelve = document.querySelector("#hour12");
+var hourOne = document.querySelector("#hour1");
+var hourTwo = document.querySelector("#hour2");
+var hourThree = document.querySelector("#hour3");
+var hourFour = document.querySelector("#hour4");
+var hourFive = document.querySelector("#hour5");
+var saveBtn = document.querySelectorAll(".saveBtn")
+
 //show todays current date
 today = moment();
     $("#currentDay").text(today.format("dddd, MMM Do"));
 
 currentHour = moment().format("hh:mm:ss");
 console.log(currentHour);
-
+// console logs values in the hours in text area
 $(".saveBtn").on("click", function () {
     console.log(this)
     var id = $(this).siblings("textarea").attr("id")
@@ -34,22 +46,22 @@ $(".saveBtn").on("click", function () {
 
 })
 
-
 //var timeRange = moment.timeRange(startTime, endTime)
 //current timer appearing on console.log
+//var time inputs = json.parse(localStorage.getItem('timeInputs')) {})
+// saveBtn.addEventListener("click", function(){
+
+hourNine = JSON.parse(localStorage.getItem("hourNine"))
+hourTen = JSON.parse(localStorage.getItem("hourTen"))
+hourEleven = JSON.parse(localStorage.getItem("hourEleven"))
+hourTwelve = JSON.parse(localStorage.getItem("hourTwelve"))
+hourOne = JSON.parse(localStorage.getItem("hourOne"))
+hourTwo = JSON.parse(localStorage.getItem("hourTwo"))
+hourThree = JSON.parse(localStorage.getItem("hourThree"))
+hourFour = JSON.parse(localStorage.getItem("hourFour"))
+hourFive = JSON.parse(localStorage.getItem("hourFive"))
 
 //9 am to 5pm display past, present, current time
-
-var description = {
-    textArea: textAreaInput.value,
-}
-console.log(description);
-
- 
-       
-        
-
-
 //show hours with past, present, future colors
 function colorChange() {
     var time = moment().hour()
@@ -77,16 +89,3 @@ colorChange();
 
 
 
-
-//timeRange = moment().range(times);
-
-
-
-
-//var time inputs = json.parse(localStorage.getItem('timeInputs')) {}))
-
-
-
-
-
-   // saveBtn.addEventListener("click", function())
